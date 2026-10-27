@@ -19,7 +19,9 @@ export default function Home() {
 
 async function ItemsSection() {
   const items = await getItems();
-  const updatedAt = items.map((i) => i.createdAt).sort().at(-1);
+  // 등록·수정·상태 변경 중 가장 최근 시각. 일본 날짜로 표시한다
+  const latest = items.map((i) => i.updatedAt).sort().at(-1);
+  const updatedAt = latest && toJstDate(latest);
 
   return (
     <>
@@ -27,4 +29,11 @@ async function ItemsSection() {
       {updatedAt && <p className={styles.updated}>最終更新 {updatedAt}</p>}
     </>
   );
+}
+
+const jstDate = new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Tokyo" });
+
+/** "2026-10-27T15:00:00+00:00" → "2026-10-28" (일본 시간 기준 YYYY-MM-DD) */
+function toJstDate(iso: string) {
+  return jstDate.format(new Date(iso));
 }

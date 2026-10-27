@@ -25,6 +25,8 @@ export type Item = {
   /** 상세 화면 조회수 */
   viewCount: number;
   createdAt: string;
+  /** 마지막으로 내용·상태를 바꾼 시각 (ISO). 조회수 증가는 포함하지 않는다 */
+  updatedAt: string;
 };
 
 export const KIND_LABEL: Record<ItemKind, string> = {

@@ -17,6 +17,7 @@ type ItemRow = {
   /** 조회수. SQL 을 실행하기 전에는 컬럼이 없어서 undefined */
   view_count?: number;
   created_at: string;
+  updated_at: string;
 };
 
 // view_count 컬럼이 아직 없어도 에러가 나지 않도록 전체(*)를 읽는다
@@ -40,6 +41,7 @@ function toItem(row: ItemRow, imageUrlOf: (path: string) => string): Item {
     imagePath: row.image_path ?? undefined,
     viewCount: row.view_count ?? 0,
     createdAt: row.created_at.slice(0, 10),
+    updatedAt: row.updated_at ?? row.created_at,
   };
 }
 
