@@ -1,0 +1,74 @@
+@use "@/styles/mixins" as *;
+
+.card {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.15s, border-color 0.15s;
+
+  &:hover {
+    border-color: var(--color-ink-mute);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// 교환 완료는 흐리게
+.done {
+  opacity: 0.55;
+
+  &:hover {
+    border-color: var(--color-line);
+  }
+}
+
+.photo {
+  position: relative;
+}
+
+.thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.badges {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 4px;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+}
+
+.genre {
+  @include truncate;
+  @include text-xs;
+  color: var(--color-ink-mute);
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  @include text-sm;
+  line-height: 1.375;
+  font-weight: 700;
+}
+
+.event {
+  margin-top: auto;
+  padding-top: 4px;
+  @include text-xs;
+  color: var(--color-ink-mute);
+}

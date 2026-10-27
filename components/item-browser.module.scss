@@ -1,0 +1,147 @@
+@use "@/styles/mixins" as *;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ---- 譲 / 求 탭 ----
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-inline: 16px;
+  border-radius: 12px;
+  background: var(--color-line);
+  padding: 4px;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  padding: 8px 0;
+  color: var(--color-ink-mute);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.tabActive {
+  background: var(--color-card);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.tabYuzuri {
+  color: var(--color-yuzuri);
+}
+
+.tabMotome {
+  color: var(--color-motome);
+}
+
+.tabLabel {
+  @include text-base;
+  font-weight: 700;
+}
+
+.tabCount {
+  @include text-sm;
+  font-weight: 400;
+}
+
+.tabHint {
+  font-size: 11px;
+}
+
+// ---- 검색과 필터 ----
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-inline: 16px;
+}
+
+.search {
+  @include field;
+  @include text-sm;
+}
+
+// 가로로 스크롤되는 필터 줄
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-inline: -16px;
+  padding: 0 16px 4px;
+}
+
+.filter {
+  @include pill;
+  position: relative;
+}
+
+.filterActive {
+  @include pill-active;
+}
+
+// 투명한 셀렉트를 칩 위에 겹쳐서, 칩을 누르면 선택 목록이 열리게 한다
+.filterSelect {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+// 태그 줄. 「もっと見る」로 펼칠 때 여러 줄로 감싼다
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+// 태그 (필터 칩보다 가볍게 보이도록 테두리만)
+.tag {
+  @include pill;
+  font-weight: 400;
+  background: transparent;
+}
+
+.tagActive {
+  @include pill-active;
+}
+
+.textButton {
+  flex-shrink: 0;
+  padding: 0 8px;
+  @include text-xs;
+  color: var(--color-ink-mute);
+  text-decoration: underline;
+}
+
+// ---- 목록 ----
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding-inline: 16px;
+
+  @include sm-up {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.empty {
+  padding: 48px 16px;
+  text-align: center;
+  @include text-sm;
+  color: var(--color-ink-mute);
+}
+
+.toggleDone {
+  margin-inline: auto;
+  padding: 8px 0;
+  @include text-xs;
+  color: var(--color-ink-mute);
+  text-decoration: underline;
+}

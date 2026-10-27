@@ -1,0 +1,117 @@
+// =====================================================================
+// 여러 컴포넌트에서 같이 쓰는 스타일 묶음
+// 각 *.module.scss 맨 위에서 `@use "@/styles/mixins" as *;` 로 불러 쓴다.
+// =====================================================================
+
+// 화면 폭 기준
+$sm: 640px;
+
+@mixin sm-up {
+  @media (min-width: $sm) {
+    @content;
+  }
+}
+
+// 글자 크기 (크기 / 줄 높이)
+@mixin text-xs {
+  font-size: 12px;
+  line-height: 16px;
+}
+@mixin text-sm {
+  font-size: 14px;
+  line-height: 20px;
+}
+@mixin text-base {
+  font-size: 16px;
+  line-height: 24px;
+}
+@mixin text-lg {
+  font-size: 18px;
+  line-height: 28px;
+}
+@mixin text-xl {
+  font-size: 20px;
+  line-height: 28px;
+}
+@mixin text-2xl {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+// 한 줄로 자르고 … 표시
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 페이지 본문 폭
+@mixin page {
+  width: 100%;
+  max-width: 768px;
+  margin-inline: auto;
+}
+
+// 입력 칸 (텍스트, 숫자, 검색, 메모)
+@mixin field {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-card);
+  padding: 10px 16px;
+  @include text-base;
+  outline: none;
+
+  &:focus {
+    border-color: var(--color-ink);
+  }
+}
+
+// 둥근 선택 버튼 (필터, 태그, 굿즈 종류 등)
+@mixin pill {
+  flex-shrink: 0;
+  border: 1px solid var(--color-line);
+  border-radius: 9999px;
+  background: var(--color-card);
+  padding: 6px 12px;
+  @include text-xs;
+  font-weight: 700;
+  color: var(--color-ink-soft);
+}
+
+@mixin pill-active {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: #fff;
+}
+
+// 큰 실행 버튼 (등록, 로그인, 신청 등)
+@mixin button-primary($bg: var(--color-ink)) {
+  width: 100%;
+  border-radius: 12px;
+  background: $bg;
+  padding: 14px 0;
+  @include text-base;
+  font-weight: 700;
+  color: #fff;
+
+  &:disabled {
+    opacity: 0.6;
+  }
+}
+
+// 흰 카드
+@mixin card {
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  background: var(--color-card);
+}
+
+// 화면 아래에 붙는 반투명 바
+@mixin bottom-bar {
+  border-top: 1px solid var(--color-line);
+  background: rgb(244 246 249 / 0.95);
+  backdrop-filter: blur(8px);
+  padding: 12px 16px max(16px, env(safe-area-inset-bottom));
+}
+

@@ -1,0 +1,58 @@
+@use "@/styles/mixins" as *;
+
+// 譲 / 求 / 상태 배지 공통
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  padding: 2px 8px;
+  @include text-xs;
+  font-weight: 700;
+}
+
+.yuzuri {
+  background: var(--color-yuzuri);
+  color: #fff;
+}
+
+.motome {
+  background: var(--color-motome);
+  color: #fff;
+}
+
+.trading {
+  border: 1px solid var(--color-ink);
+  background: var(--color-card);
+  color: var(--color-ink);
+}
+
+.done {
+  background: var(--color-line);
+  color: var(--color-ink-soft);
+}
+
+// 사진
+.image {
+  object-fit: cover;
+}
+
+// 사진이 없을 때의 자리표시
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+  @include text-sm;
+  font-weight: 700;
+}
+
+.placeholderYuzuri {
+  background: var(--color-yuzuri-soft);
+  color: var(--color-yuzuri);
+}
+
+.placeholderMotome {
+  background: var(--color-motome-soft);
+  color: var(--color-motome);
+}

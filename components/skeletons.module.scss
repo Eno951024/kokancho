@@ -1,0 +1,85 @@
+@use "@/styles/mixins" as *;
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// 깜빡이는 회색 블록
+.block {
+  background: var(--color-line);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+// 목록
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tabs {
+  height: 60px;
+  margin-inline: 16px;
+  border-radius: 12px;
+}
+
+.search {
+  height: 42px;
+  margin-inline: 16px;
+  border-radius: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding-inline: 16px;
+
+  @include sm-up {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+}
+
+// 상세
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-inline: 16px;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+
+  @include sm-up {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.line {
+  border-radius: 4px;
+}
+
+.short {
+  width: 33%;
+  height: 24px;
+}
+
+.medium {
+  width: 66%;
+  height: 32px;
+}
+
+.box {
+  height: 160px;
+  border-radius: 16px;
+}

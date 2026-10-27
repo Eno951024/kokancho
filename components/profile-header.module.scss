@@ -1,0 +1,53 @@
+@use "@/styles/mixins" as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 16px 16px;
+}
+
+.brand {
+  @include text-xs;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-yuzuri);
+}
+
+.owner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ownerText {
+  min-width: 0;
+}
+
+.title {
+  @include text-lg;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.handle {
+  @include text-sm;
+  color: var(--color-ink-mute);
+  text-underline-offset: 2px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  @include text-xs;
+  color: var(--color-ink-soft);
+}
+
+.updated {
+  color: var(--color-ink-mute);
+}

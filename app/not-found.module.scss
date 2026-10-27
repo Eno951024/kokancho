@@ -1,0 +1,30 @@
+@use "@/styles/mixins" as *;
+
+.main {
+  @include page;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 96px 16px;
+  text-align: center;
+}
+
+.title {
+  @include text-lg;
+  font-weight: 700;
+}
+
+.text {
+  @include text-sm;
+  color: var(--color-ink-mute);
+}
+
+.back {
+  border-radius: 12px;
+  background: var(--color-ink);
+  padding: 10px 20px;
+  @include text-sm;
+  font-weight: 700;
+  color: #fff;
+}

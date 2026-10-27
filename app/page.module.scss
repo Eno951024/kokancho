@@ -1,0 +1,13 @@
+@use "@/styles/mixins" as *;
+
+.main {
+  @include page;
+  padding-bottom: 64px;
+}
+
+.updated {
+  margin-top: 24px;
+  text-align: center;
+  @include text-xs;
+  color: var(--color-ink-mute);
+}

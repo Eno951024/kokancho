@@ -1,0 +1,171 @@
+@use "@/styles/mixins" as *;
+
+// ---- 화면 아래 고정 신청 버튼 ----
+.bar {
+  @include bottom-bar;
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.barInner {
+  @include page;
+}
+
+.cta {
+  @include button-primary;
+  transition: transform 0.15s;
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+  &:disabled {
+    opacity: 1;
+    background: var(--color-line);
+    color: var(--color-ink-mute);
+  }
+}
+
+.yuzuri {
+  background: var(--color-yuzuri);
+}
+
+.motome {
+  background: var(--color-motome);
+}
+
+// ---- 아래에서 올라오는 신청 시트 ----
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(41 61 82 / 0.4);
+}
+
+.sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 768px;
+  max-height: 90dvh;
+  overflow-y: auto;
+  border-radius: 24px 24px 0 0;
+  background: var(--color-paper);
+  padding: 12px 20px max(20px, env(safe-area-inset-bottom));
+}
+
+.handle {
+  width: 40px;
+  height: 6px;
+  margin-inline: auto;
+  border-radius: 9999px;
+  background: var(--color-line);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  @include text-lg;
+  font-weight: 700;
+}
+
+.close {
+  @include text-sm;
+  color: var(--color-ink-mute);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  @include text-sm;
+  font-weight: 700;
+}
+
+.input {
+  @include field;
+  @include text-sm;
+}
+
+// 보낼 문장 미리보기
+.preview {
+  white-space: pre-wrap;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-card);
+  padding: 16px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.625;
+  color: var(--color-ink-soft);
+}
+
+.note {
+  @include text-xs;
+  color: var(--color-ink-mute);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.copy {
+  border: 1px solid var(--color-ink);
+  border-radius: 12px;
+  padding: 12px 0;
+  @include text-sm;
+  font-weight: 700;
+}
+
+.dm {
+  border-radius: 12px;
+  padding: 12px 0;
+  text-align: center;
+  @include text-sm;
+  font-weight: 700;
+  color: #fff;
+}
+
+// DM 을 열 때 복사 결과 안내
+.copyResult {
+  border-radius: 12px;
+  background: var(--color-line);
+  padding: 12px 16px;
+  @include text-sm;
+  font-weight: 700;
+}
+
+.copyFail {
+  background: var(--color-yuzuri-soft);
+  font-weight: 400;
+}
+
+.noId {
+  border-radius: 12px;
+  background: var(--color-line);
+  padding: 12px 0;
+  text-align: center;
+  @include text-xs;
+  color: var(--color-ink-mute);
+}

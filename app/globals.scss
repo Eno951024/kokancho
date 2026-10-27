@@ -1,0 +1,117 @@
+// =====================================================================
+// 사이트 전체 공통 스타일
+// 색상·폰트는 CSS 변수로 두고, 각 컴포넌트의 *.module.scss 에서 var(--color-…) 로 쓴다.
+// =====================================================================
+
+:root {
+  // 색상
+  --color-paper: #f4f6f9; // 배경
+  --color-card: #ffffff; // 카드 본체
+  --color-line: #e2e8f0; // 카드 포인트: 테두리, 탭 배경, 구분선
+  --color-ink: #293d52; // 텍스트
+  --color-ink-soft: #48596c;
+  --color-ink-mute: #5a6b7e;
+  --color-yuzuri: #647f9b; // 강조색 = 譲
+  --color-yuzuri-soft: #e2e8f0;
+  --color-motome: #293d52; // 求
+  --color-motome-soft: #d5dee8;
+
+  // 폰트
+  --font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", system-ui, sans-serif;
+
+  color-scheme: light;
+}
+
+// ---------------------------------------------------------------------
+// 리셋 (브라우저 기본 여백·스타일 정리)
+// ---------------------------------------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+}
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+}
+
+body {
+  min-height: 100%;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+textarea {
+  resize: vertical;
+}
+
+::placeholder {
+  color: var(--color-ink-mute);
+  opacity: 1;
+}
+
+// 화면에는 안 보이고 스크린 리더만 읽는 요소
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
